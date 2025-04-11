@@ -12,12 +12,8 @@ def out_header():
     print("static unsigned char memory[65536]={0};")
     print("static int tmp,reminder;")
     print("static char buff[100]={0};")
-    print("int ia(char *s,int v) {if (v){int i=0,r;for(r=v;r/=10;i++);ia(s,v/10);s[i++]=v%10+48;s[i]=0;}}");
-    print("void pretprt(short c,short v) {")
-    print("ia(buff,v); ")
-    print("for(short j=0;j<c-strlen(buff);j++) printf(\" \"); ")
-    print("printf(buff); ")
-    print("}")
+    print("int itoa(char *s,int v) {if (v){int i=0,r;for(r=v;r/=10;i++);itoa(s,v/10);s[i++]=v%10+48;s[i]=0;}}");
+    print("void pretprt(short c,short v) { itoa(buff,v); for(short j=0;j<c-strlen(buff);j++) printf(\" \"); printf(buff); }")
     print("void main() {")
     return
 
@@ -80,7 +76,7 @@ def term(s,idx):
     elif s[idx]=='%':
         (o,idx)=term(s,idx+1)
         u="(reminder)"
-        return u,idx+1
+        return u,idx
 
     elif s[idx]=='$' and not xdigit(s[idx+1]):
         return "getchar()",idx+1
@@ -150,7 +146,7 @@ def expression(s,idx):
             break
         (v,idx)=term(s,idx)
         if op=='/':
-            return ("((reminder="+w+"%"+v+"),("+w+"/"+v+"))",idx)
+            return ("((reminder="+w+"%"+v+"),(short)("+w+"/"+v+"))",idx)
         w="("+w+op+v+")"
     return w,idx
 
@@ -304,7 +300,7 @@ def ret():
 
 def if__(o):
     print(f"if (!({o})) ",end='')
-    goto(cp+1);
+    goto(cp+1)
     return
 
 def gosub(n):
@@ -375,7 +371,9 @@ def main():
 
 if __name__=='__main__':
     if len(sys.argv)!=2:
-        print("Usage: miep2.py file.gm >c.out")
+        print("Usage: miep2.py file.gm >out.c")
         exit(1)
     main()
     exit(0)
+
+
