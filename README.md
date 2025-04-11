@@ -55,13 +55,11 @@ It uses the cc inline assembler and is for x86_64 linux systems.
 
 ! =n(gosub) and] (ret) are machine dependent parts, the rest are machine independent. It is my future task to make it completely machine-independent so that it can be hung on a general C compiler, but it may be difficult to write subroutine calls due to the C language specification.
 
-Any way completed.
+Any way completed. version 1.0.0 8/26/2024
 
-version 1.0.0 8/26/2024
+A little version up, renamed. version 1.0.1 8/27/2024
 
-A little version up, renamed.
-
-version 1.0.1 8/27/2024
+Fixed a bug in obtaining the remainder calculation result version1.0.2 04/11/2025
 
 # Issues for future work
 
