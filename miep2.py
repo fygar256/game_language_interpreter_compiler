@@ -8,9 +8,9 @@ def out_header():
     print("#include <stdio.h>")
     print("#include <stdlib.h>")
     print("#include <string.h>")
-    print("static short A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z;")
+    print("static short A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,reminder;")
     print("static unsigned char memory[65536]={0};")
-    print("static int tmp,reminder;")
+    print("static int tmp;")
     print("static char buff[100]={0};")
     print("int itoa(char *s,int v) {if (v){int i=0,r;for(r=v;r/=10;i++);itoa(s,v/10);s[i++]=v%10+48;s[i]=0;}}");
     print("void pretprt(short c,short v) { itoa(buff,v); for(short j=0;j<c-strlen(buff);j++) printf(\" \"); printf(buff); }")
