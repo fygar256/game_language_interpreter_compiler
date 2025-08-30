@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import sys
 import re
 lines=[]
@@ -172,6 +172,9 @@ def parse(l):
             (o,idx)=expression(s,2)
             if__(o)
 
+        elif s[0:2]=='?=':
+            (o,idx)=expression(s,2)
+            print(f"printf(\"%d\",{o}); ",end='')
         elif s[0:3]=='??=':
             (o,idx)=expression(s,3)
             print(f"printf(\"%04x\",{o}); ",end='')
@@ -296,7 +299,7 @@ def adjust_go(n):
     return -1
 
 def ret():
-    print("__asm__ (\"ret\" : : :); ",end='')
+    print("__asm__(\"ret\"); ",end='')
 
 def if__(o):
     print(f"if (!({o})) ",end='')
@@ -304,12 +307,14 @@ def if__(o):
     return
 
 def gosub(n):
-    print(f"__asm__ goto(\"call %l[l{adjust_go(n)}]\" : : : :l{adjust_go(n)}); ",end='')
+    print("__asm__ (\"push %rax\"); ",end='')
+    print(f"__asm__ goto(\"call %l[l{adjust_go(n)}]\" ::: : l{adjust_go(n)}); ",end="")
+    print("__asm__ (\"pop %rax\"); ",end='')
     return
 
 def goto(n):
     if n==-1:
-        print("return; ",end='')
+        print("exit(0); ",end='')
         return
     print(f"goto l{adjust_go(n)}; ",end='')
     return
