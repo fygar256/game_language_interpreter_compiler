@@ -12,8 +12,6 @@ def out_header():
     print("static unsigned char memory[65536]={0};")
     print("static int tmp;")
     print("static char buff[100]={0};")
-    print("int itoa(char *s,int v) {if (v){int i=0,r;for(r=v;r/=10;i++);itoa(s,v/10);s[i++]=v%10+48;s[i]=0;}}");
-    print("void pretprt(short c,short v) { itoa(buff,v); for(short j=0;j<c-strlen(buff);j++) printf(\" \"); printf(buff); }")
     print("void main() {")
     return
 
@@ -201,7 +199,7 @@ def parse(l):
             if s[idx:idx+2]==')=':
                 idx+=2
                 p,idx=expression(s,idx)
-                print(f"pretprt((short){o},(short){p}); ",end='')
+                print(f"printf(\"%*d\",(short){o},(short){p}); ",end='')
             else:
                 pass
             pass
