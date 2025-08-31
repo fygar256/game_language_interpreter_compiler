@@ -11,7 +11,6 @@ def out_header():
     print("static short A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,reminder;")
     print("static unsigned char memory[65536]={0};")
     print("static int tmp;")
-    print("static char buff[100]={0};")
     print("void main() {")
     return
 
