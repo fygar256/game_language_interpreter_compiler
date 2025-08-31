@@ -150,8 +150,6 @@ ccのインラインアセンブラを使用しているので、x86_64 linuxシ
 
 ・for-next,do-untl文の、for文またはdo文一つに対して複数のnext文、until文がある場合には対応していません。
 
-・for-next文の制御変数に配列が使えない
-
 ・for文の終値に変数を使うと、カウントアップとして扱われる。
 
 ・next文に２重以上の括弧があるとバグる。
@@ -185,8 +183,6 @@ Fixed a bug in obtaining the remainder calculation result version1.0.2 04/11/202
 # Issues for future work
 
 The for-next and do-untl statements do not support the case where there are multiple next and until statements for a single for or do statement.
-
-Arrays cannot be used as control variables in the for-next statement.
 
 If a variable is used for the end value of a for statement, it is treated as a count-up.
 
