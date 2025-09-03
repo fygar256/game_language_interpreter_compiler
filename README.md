@@ -170,7 +170,7 @@ In general, if verbosity is allowed, sources written in lower-level programming 
 
 It is not optimized. Error checking is lax.
 
-It uses the cc inline assembler and is for x86_64 linux systems.
+It uses the cc inline assembler and is for x86_64 linux/FreeBSD systems.
 
 ! =n(gosub) and] (ret) are machine dependent parts, the rest are machine independent. It is my future task to make it completely machine-independent so that it can be hung on a general C compiler, but it may be difficult to write subroutine calls due to the C language specification.
 
