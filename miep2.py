@@ -35,7 +35,7 @@ def getdcmstr(s,idx):
 
 def term(s,idx):
     u=''
-    if idx>=len(s):
+    if idx<0 or idx>=len(s):
         return s,-1
 
     if s[idx]=='(':
@@ -103,11 +103,11 @@ def term(s,idx):
             return (s[idx-1].upper()),idx
     return s,idx+1
 
-def expression(s,idx):
+def expression0(s,idx):
     (o,idx)=term(s,idx)
     w=o
     while True:
-        if idx>=len(s):
+        if idx<0 or idx>=len(s):
             break
         if s[idx]=='+':
             op='+'
@@ -146,6 +146,13 @@ def expression(s,idx):
             return ("((reminder="+w+"%"+v+"),(short)("+w+"/"+v+"))",idx)
         w="("+w+op+v+")"
     return w,idx
+
+def expression(s,idx):
+    sidx=idx
+    (o,idx)=expression0(s,idx)
+    if (sidx==idx):
+        idx+=1
+    return (o,idx)
 
 def value(s,idx):
     return(int(s[idx:]))
