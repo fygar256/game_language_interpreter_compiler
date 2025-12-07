@@ -380,7 +380,7 @@ def main():
 
 if __name__=='__main__':
     if len(sys.argv)!=2:
-        print("Usage: miep2.py file.gm >out.c")
+        print("Usage: gamecomp.py file.gm >out.c")
         exit(1)
     main()
     exit(0)
