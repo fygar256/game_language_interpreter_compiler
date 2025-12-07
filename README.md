@@ -124,11 +124,9 @@ Translated with DeepL.com (free version)
 
 GAME言語からCへ変換するコンパイラをpythonで書いてみました。
 
-GAME言語コンパイラ -  miep2.py
+GAME言語コンパイラ -  gamecomp.py
 
-`./miep2.py file.gm >out.c`とすると、GAME言語で書かれたfile.gmをCのソースに変換し、out.cに出力します。
-
-本当はMIEP2ではなく、MIEPにしたいのですが、MIEPという名前は、43年前に中学生の僕と師匠の浜田さんがMicro Integer Expression Processorとして、自作のゲーム言語互換インタプリタ・コンパイラシステムに既に名付けていたので、2が付きました。
+`./gamecomp.py file.gm >out.c`とすると、GAME言語で書かれたfile.gmをCのソースに変換し、out.cに出力します。
 
 out.cはccでコンパイル可能です。 `cc out.c -o a.out`、`./a.out`で実行することが出来ます。
 
@@ -160,11 +158,9 @@ FreeBSDシステム用に、コールスタックを１６バイトアライメ�
 
 I wrote a compiler in python to convert from GAME language to C.
 
-GAME language compiler - miep2.py
+GAME language compiler - gamecomp.py
 
-`. /miep2.py file.gm >out.c` will convert file.gm written in GAME language to C source and output to out.c.
-
-Actually, I would like to name it MIEP instead of MIEP2, but the name MIEP was already given to my own game language compatible interpreter/compiler system as Micro Integer Expression Processor by me, a junior high school student, and my teacher, Mr. Hamada, 43 years ago, so it was named 2 was added.
+`. /gamecomp.py file.gm >out.c` will convert file.gm written in GAME language to C source and output to out.c.
 
 out.c can be compiled with cc. `cc out.c -o a.out`, `. /a.out` to execute it.
 
